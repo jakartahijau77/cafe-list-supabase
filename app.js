@@ -1,8 +1,7 @@
 // 1. Inisialisasi Supabase (ISI NANTI SETELAH BUAT PROJECT DI SUPABASE)
 const SUPABASE_URL = 'https://ctbxuamccobhcomauezf.supabase.co'; 
 const SUPABASE_KEY = 'sb_publishable_P-R0ZK5IPT9CjbM1KWa-1A_SFz6-uUw'; 
-const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
-
+   const db = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 const defaultImg = 'https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=300&h=300&fit=crop';
 let dataKafe = [];
 let isSplitActive = false;
@@ -14,7 +13,7 @@ L.tileLayer('https://tile.openstreetmap.org/{z}/{x}/{y}.png', { attribution: '©
 
 // 3. Ambil Data dari Supabase
 async function loadDataKafe() {
-    const { data, error } = await supabase.from('kafe').select('*').order('id', { ascending: false });
+    const { data, error } = await db.from('kafe').select('*').order('id', { ascending: false });
     
     if (error) {
         console.error("Gagal ambil data:", error);

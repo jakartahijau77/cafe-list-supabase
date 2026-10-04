@@ -1,5 +1,5 @@
-const SUPABASE_URL = 'https://xxxxx.supabase.co'; // SAMA DENGAN app.js
-const SUPABASE_KEY = 'eyJhbG...xxxxx'; // SAMA DENGAN app.js
+const SUPABASE_URL = 'https://ctbxuamccobhcomauezf.supabase.co'; 
+const SUPABASE_KEY = 'sb_publishable_P-R0ZK5IPT9CjbM1KWa-1A_SFz6-uUw'; 
 const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
 let mapAdmin, markerAdmin;
