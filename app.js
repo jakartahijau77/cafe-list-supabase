@@ -1,6 +1,6 @@
 // 1. Inisialisasi Supabase (ISI NANTI SETELAH BUAT PROJECT DI SUPABASE)
-const SUPABASE_URL = 'https://xxxxx.supabase.co'; 
-const SUPABASE_KEY = 'eyJhbG...xxxxx'; 
+const SUPABASE_URL = 'https://ctbxuamccobhcomauezf.supabase.co'; 
+const SUPABASE_KEY = 'sb_publishable_P-R0ZK5IPT9CjbM1KWa-1A_SFz6-uUw'; 
 const supabase = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 
 const defaultImg = 'https://images.unsplash.com/photo-1554118811-1e0d58224f24?w=300&h=300&fit=crop';
