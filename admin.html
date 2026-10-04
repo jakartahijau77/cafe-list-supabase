@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - Cafe List</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- Form Login Sederhana -->
+    <div id="loginSection" class="login-form">
+        <h2>🔐 Admin Login</h2>
+        <input type="email" id="adminEmail" placeholder="Email" style="width:100%;padding:10px;margin:10px 0;border:1px solid #ddd;border-radius:6px;">
+        <input type="password" id="adminPassword" placeholder="Password" style="width:100%;padding:10px;margin:10px 0;border:1px solid #ddd;border-radius:6px;">
+        <button onclick="login()" class="admin-btn">Masuk</button>
+        <p id="loginMsg" style="color:red;margin-top:10px;font-size:0.9rem;"></p>
+    </div>
+
+    <!-- Dashboard Admin (Tersembunyi sampai login) -->
+    <div id="adminDashboard" class="admin-container hidden">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:20px;">
+            <h2>Panel Admin</h2>
+            <button onclick="logout()" style="background:#e74c3c;color:white;border:none;padding:8px 16px;border-radius:6px;cursor:pointer;">Logout</button>
+        </div>
+
+        <div class="admin-card">
+            <h3 id="formTitle">➕ Tambah Kafe Baru</h3>
+            <input type="hidden" id="editId">
+            <label style="font-weight:600;margin-top:10px;display:block;">Nama Kafe *</label>
+            <input type="text" id="inputNama" required>
+            
+            <label style="font-weight:600;margin-top:10px;display:block;">Alamat</label>
+            <input type="text" id="inputAlamat">
+            
+            <label style="font-weight:600;margin-top:10px;display:block;">Deskripsi</label>
+            <textarea id="inputDeskripsi" rows="3"></textarea>
+            
+            <label style="font-weight:600;margin-top:10px;display:block;">Foto</label>
+            <input type="file" id="inputFoto" accept="image/*">
+            <img id="previewFoto" style="max-width:200px;margin-top:10px;border-radius:8px;display:none;">
+            
+            <label style="font-weight:600;margin-top:10px;display:block;">Koordinat (Klik Peta)</label>
+            <div style="display:flex;gap:10px;">
+                <input type="number" step="any" id="inputLat" placeholder="Latitude" required>
+                <input type="number" step="any" id="inputLng" placeholder="Longitude" required>
+            </div>
+            <div id="map-admin"></div>
+            
+            <button onclick="simpanData()" class="admin-btn">Simpan Data</button>
+            <button onclick="resetForm()" style="background:#95a5a6;color:white;border:none;padding:12px;width:100%;border-radius:8px;margin-top:10px;cursor:pointer;">Batal / Reset</button>
+        </div>
+
+        <div class="admin-card">
+            <h3>Daftar Kafe</h3>
+            <div id="adminList" style="margin-top:15px;"></div>
+        </div>
+    </div>
+
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="admin.js"></script>
+</body>
+</html>

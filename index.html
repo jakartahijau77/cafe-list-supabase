@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Cafe List - Work From Anywhere</title>
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="app-header">
+        <div class="header-logo">Cafe List</div>
+        <div class="header-count" id="kafeCount">Memuat data...</div>
+    </div>
+
+    <div id="map"></div>
+
+    <button class="fab-list" id="fabListBtn" onclick="toggleSplitView()">
+        <span>📋</span> <span id="fabText">Daftar Kafe</span>
+    </button>
+
+    <div class="split-view" id="splitView">
+        <div class="split-header">
+            <h2>📍 Daftar Kafe</h2>
+            <button class="split-close" onclick="toggleSplitView()" style="background:#f3f4f6;border:none;width:32px;height:32px;border-radius:50%;cursor:pointer;">✕</button>
+        </div>
+        <div class="split-list" id="kafeListContainer">
+            <p style="text-align:center;padding:20px;">Memuat data kafe...</p>
+        </div>
+    </div>
+
+    <div class="modal-overlay" id="modalDetail">
+        <div class="modal-content">
+            <div class="modal-handle"></div>
+            <img src="" alt="Foto Kafe" class="modal-img" id="modalImg">
+            <div class="modal-body">
+                <h2 id="modalNama"></h2>
+                <p id="modalAlamat" style="color:#6b7280;margin-bottom:10px;"></p>
+                <div id="modalDeskripsiWrap" style="background:#f9fafb;padding:14px;border-radius:10px;margin-top:16px;">
+                    <p id="modalDeskripsi" style="font-size:0.9rem;line-height:1.65;"></p>
+                </div>
+                <a href="#" id="modalMaps" target="_blank" class="modal-btn modal-btn-primary">🗺️ Buka di Google Maps</a>
+                <button onclick="tutupModal()" class="modal-btn modal-btn-secondary">Tutup</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Supabase SDK -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+    <script src="app.js"></script>
+</body>
+</html>
